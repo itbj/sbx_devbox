@@ -15,7 +15,7 @@ echo ""
 
 # Install needed utilities
 echo "Installing git and sshpass for deployment"
-yum install git sshpass
+yum install -y git sshpass
 echo ""
 
 # Create base directories
