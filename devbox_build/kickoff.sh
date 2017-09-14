@@ -27,11 +27,13 @@ echo
 echo "Cloning Sandbox Repo"
 cd coding
 git clone https://github.com/DevNetSandbox/sbx_devbox
+cd sbx_devbox
+git pull
 echo ""
 
 # Run Playbook
 echo "Running DevBox Setup Playbook"
-cd sbx_devbox/devbox_build
+cd devbox_build
 ansible-playbook -i hosts devbox.yml
 echo ""
 

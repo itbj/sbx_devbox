@@ -1,5 +1,16 @@
 ---
 # build-servers.yml
+# - name: Initial Prep
+#   hosts: devbox
+#
+#   tasks:
+#     - name: Install basic utilities
+#       yum: name={{ item }} state=latest
+#       # ignore_errors: true
+#       with_items:
+#         - wget
+
+
 - hosts: devbox
   #Define user and password variables
   vars:
@@ -8,9 +19,10 @@
     password : deZglJ0UD./IQ
     user : devbox
   roles:
-    - test 
+    - test
+    - common
+    - python
     # - users
-    # - common
     # - docker
     # - node
     # - python
