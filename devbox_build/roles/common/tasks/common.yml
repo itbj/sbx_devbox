@@ -16,32 +16,32 @@
     - openssl-devel
     - wget
 
-# - name: install the 'XWindows' environment group
-#   yum:
-#     name: "@X Window System"
-#     state: present
-#   become: yes
-#   tags:
-#     - gnome
-#
-# - name: Install gnome minimal
-#   become: yes
-#   yum: name={{ item }} state=latest
-#   with_items:
-#     - gnome-classic-session
-#     - gnome-terminal
-#     #- nautilus-open-terminal
-#     - control-center
-#     - liberation-mono-fonts
-#     - firefox
-#   tags:
-#     - gnome
-#
-# - name: set GUI to launch on startup
-#   become: yes
-#   command: "systemctl set-default graphical.target"
-#   tags:
-#     - gnome
+- name: install the 'XWindows' environment group
+  yum:
+    name: "@X Window System"
+    state: present
+  become: yes
+  tags:
+    - gnome
+
+- name: Install gnome minimal
+  become: yes
+  yum: name={{ item }} state=latest
+  with_items:
+    - gnome-classic-session
+    - gnome-terminal
+    #- nautilus-open-terminal
+    - control-center
+    - liberation-mono-fonts
+    - firefox
+  tags:
+    - gnome
+
+- name: set GUI to launch on startup
+  become: yes
+  command: "systemctl set-default graphical.target"
+  tags:
+    - gnome
 
 - name: install the 'Development tools' package group
   yum:
@@ -49,36 +49,36 @@
     state: present
   become: yes
 
-# - name: create (shortcut) directory
-#   become: yes
-#   become_user: "{{ general.user }}"
-#   file:
-#     path: "/home/{{ general.user }}/Desktop"
-#     state: directory
-#   tags:
-#     - configuration
-#
-# - name: install firfox shortcuts
-#   become: yes
-#   become_user: "{{ general.user }}"
-#   template:
-#     src: "roles/common/templates/firefox.desktop.j2"
-#     dest: /home/{{ general.user }}/Desktop/firefox.desktop
-#     owner: "{{ general.user }}"
-#     mode: 0755
-#   tags:
-#     - configuration
-#
-# - name: install terminal shortcuts
-#   become: yes
-#   become_user: "{{ general.user }}"
-#   template:
-#     src: "roles/common/templates/gnome-terminal.desktop.j2"
-#     dest: /home/{{ general.user }}/Desktop/gnome-terminal.desktop
-#     owner: "{{ general.user }}"
-#     mode: 0755
-#   tags:
-#     - configuration
+- name: create (shortcut) directory
+  become: yes
+  become_user: "{{ general.user }}"
+  file:
+    path: "{{ general.home_dir }}/Desktop"
+    state: directory
+  tags:
+    - configuration
+
+- name: install firfox shortcuts
+  become: yes
+  become_user: "{{ general.user }}"
+  template:
+    src: "roles/common/templates/firefox.desktop.j2"
+    dest: "{{ general.home_dir }}/Desktop/firefox.desktop"
+    owner: "{{ general.user }}"
+    mode: 0755
+  tags:
+    - configuration
+
+- name: install terminal shortcuts
+  become: yes
+  become_user: "{{ general.user }}"
+  template:
+    src: "roles/common/templates/gnome-terminal.desktop.j2"
+    dest: "{{ general.home_dir }}/Desktop/gnome-terminal.desktop"
+    owner: "{{ general.user }}"
+    mode: 0755
+  tags:
+    - configuration
 
 # - name: remove vagrant from login screen
 #   become: yes
