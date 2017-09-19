@@ -16,7 +16,7 @@
   become_user: "{{ general.user }}"
   get_url:
     url: "{{ vagrant_download_url }}"
-    dest: "{{ vagrant_downloads_path }}/{{ vagrant_release }}_x86_64.rpm"
+    dest: "{{ vagrant_downloads_path }}/vagrant_{{ vagrant_release }}_x86_64.rpm"
   tags:
     - configuration
     - vagrant
