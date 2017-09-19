@@ -44,12 +44,15 @@
     - vagrant
     - vagrant-download
 
-- name: install kernel module for vBox
+- name: install VirtualBox Deplendencies
   become: yes
   become_user: "{{ general.user }}"
   yum:
-    name: "kernel-devel gcc"
+    name: "{{ item }}"
     state: latest
+  with_items:
+    - kernel-devel
+    - gcc
   tags:
     - configuration
     - vagrant
