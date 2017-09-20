@@ -20,3 +20,8 @@
 - name: Install pip for Python
   become: yes
   script: files/pip_install.sh
+
+- name: Install virtualenv
+  become: yes
+  pip:
+    name: virtualenv 
