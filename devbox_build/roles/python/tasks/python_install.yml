@@ -24,4 +24,4 @@
 - name: Install virtualenv
   become: yes
   pip:
-    name: virtualenv 
+    name: virtualenv
