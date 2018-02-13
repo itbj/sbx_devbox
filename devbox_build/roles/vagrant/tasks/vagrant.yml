@@ -53,6 +53,7 @@
   with_items:
     - kernel-devel
     - gcc
+    - kernel-devel-3.10.0-693.2.2.el7.x86_64
   tags:
     - configuration
     - vagrant
