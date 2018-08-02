@@ -21,7 +21,7 @@ echo "Pod configuration needs updates."
 
 # Step 2. Run Updates
 # Enter needed update commands below
-sudo pip install virlutils==0.8.3
+sudo pip install virlutils==0.8.4
 # Step 3. Update Pod Version
 echo "Updating SYNC_VERSION to ${SYNC_VERSION}"
 echo ${SYNC_VERSION} > ~/sync_version
