@@ -5,7 +5,7 @@
 # updates and changes to maintain the latest requirements and tools.
 
 # The "SYNC_VERSION" is used to determine whether any pod updates are needed
-SYNC_VERSION=1
+SYNC_VERSION=2
 
 # Step 1. Check to see if script needs to run.  If not, exit.
 CURRENT_VERSION=$(<~/sync_version)
@@ -21,7 +21,7 @@ echo "Pod configuration needs updates."
 
 # Step 2. Run Updates
 # Enter needed update commands below
-
+sudo pip install virlutils==0.8.3
 # Step 3. Update Pod Version
 echo "Updating SYNC_VERSION to ${SYNC_VERSION}"
 echo ${SYNC_VERSION} > ~/sync_version
