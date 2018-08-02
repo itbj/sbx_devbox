@@ -5,7 +5,7 @@
 # updates and changes to maintain the latest requirements and tools.
 
 # The "SYNC_VERSION" is used to determine whether any pod updates are needed
-SYNC_VERSION=2
+SYNC_VERSION=3
 
 # Step 1. Check to see if script needs to run.  If not, exit.
 CURRENT_VERSION=$(<~/sync_version)
