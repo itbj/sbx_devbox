@@ -5,7 +5,7 @@
 # updates and changes to maintain the latest requirements and tools.
 
 # The "SYNC_VERSION" is used to determine whether any pod updates are needed
-SYNC_VERSION=4
+SYNC_VERSION=5
 
 # Step 1. Check to see if script needs to run.  If not, exit.
 CURRENT_VERSION=$(<~/sync_version)
@@ -28,7 +28,7 @@ sudo pip install virlutils==0.8.4
 # disable firewalld
 sudo systemctl stop firewalld
 sudo systemctl disable firewalld
-
+sudo systemctl restart docker
 
 # Step 3. Update Pod Version
 echo "Updating SYNC_VERSION to ${SYNC_VERSION}"
