@@ -5,7 +5,7 @@
 # updates and changes to maintain the latest requirements and tools.
 
 # The "SYNC_VERSION" is used to determine whether any pod updates are needed
-SYNC_VERSION=5
+SYNC_VERSION=6
 
 # Step 1. Check to see if script needs to run.  If not, exit.
 CURRENT_VERSION=$(<~/sync_version)
@@ -24,6 +24,9 @@ echo "Pod configuration needs updates."
 
 # Update virlutils to latest version
 sudo pip install virlutils==0.8.4
+
+# somebody will still want telnet
+sudo yum install -y telnet
 
 # disable firewalld
 sudo systemctl stop firewalld
