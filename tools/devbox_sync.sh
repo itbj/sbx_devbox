@@ -5,7 +5,7 @@
 # updates and changes to maintain the latest requirements and tools.
 
 # The "SYNC_VERSION" is used to determine whether any pod updates are needed
-SYNC_VERSION=6
+SYNC_VERSION=7
 
 # Step 1. Check to see if script needs to run.  If not, exit.
 CURRENT_VERSION=$(<~/sync_version)
@@ -32,6 +32,19 @@ sudo yum install -y telnet
 sudo systemctl stop firewalld
 sudo systemctl disable firewalld
 sudo systemctl restart docker
+
+mkdir -p ~/.ssh
+cat > ~/.ssh/config <<EOF
+Host 172.20.*.*
+  StrictHostKeyChecking no
+  UserKnownHostsFile=/dev/null
+Host 10.10.20.*
+   StrictHostKeyChecking no
+   UserKnownHostsFile=/dev/null
+Host 172.16.30.*
+   StrictHostKeyChecking no
+   UserKnownHostsFile=/dev/null
+EOF
 
 # Step 3. Update Pod Version
 echo "Updating SYNC_VERSION to ${SYNC_VERSION}"
